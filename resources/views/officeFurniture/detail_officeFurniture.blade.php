@@ -166,7 +166,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="panjang" class="form-control col-sm-2 " id="panjang" value="{{ $detail_office->panjang }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -178,7 +178,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="lebar" class="form-control col-sm-2 " id="lebar" value="{{ $detail_office->lebar }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -190,7 +190,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="tinggi" class="form-control col-sm-2 " id="tinggi" value="{{ $detail_office->tinggi }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -241,9 +241,7 @@
                             <img class="card-img rounded-0 img-fluid" src="/image/items/{{ $office_furniture->image }}">
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="/categories/office_furnitures/{{ $office_furniture->id }}/detail"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="/categories/office_furnitures/{{ Crypt::encrypt($office_furniture->id) }}/detail"><i class="far fa-eye"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -485,7 +483,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="panjang" class="form-control col-sm-2 " id="panjang" value="{{ $detail_office->panjang }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -497,7 +495,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="lebar" class="form-control col-sm-2 " id="lebar" value="{{ $detail_office->lebar }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -509,7 +507,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="tinggi" class="form-control col-sm-2 " id="tinggi" value="{{ $detail_office->tinggi }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -560,7 +558,7 @@
                             <img class="card-img rounded-0 img-fluid" src="/image/items/{{ $office_furniture->image }}">
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white mt-2" href="/categories/office_furnitures/{{ $office_furniture->id }}/detail"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="/categories/office_furnitures/{{ Crypt::encrypt($office_furniture->id) }}/detail"><i class="far fa-eye"></i></a></li>
                                 </ul>
                             </div>
                         </div>

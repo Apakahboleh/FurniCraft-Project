@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KitchenSet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Intervention\Image\Facades\Image;
 
 
@@ -38,7 +39,7 @@ class KitchenSetController extends Controller
 
     public function edit_page( $id )
     {
-        $kitchenSets = KitchenSet::find($id);
+        $kitchenSets = KitchenSet::find(Crypt::decrypt($id));
         return view('kitchenSet.editKitchen', compact(['kitchenSets']));
     }
 
@@ -79,60 +80,63 @@ class KitchenSetController extends Controller
             $kitchenSets->image3 = $fileName;
             $kitchenSets->save();
         }
-        
+
         return redirect('/categories/kitchenSet')->with('editKitchen', "Kitchen Set Berhasil Di Edit");
     }
 
-    public function destroy( $id, Request $request )
+    public function destroy( $id )
     {
-        $kitchenSets = KitchenSet::find($id)->delete();
+        $kitchenSets = KitchenSet::find(Crypt::decrypt($id))->delete();
         return redirect('/categories/kitchenSet')->with('hapusKitchen', "Kitchen Set Berhasil Di Hapus");
     }
 
     public function detail_page( $id )
     {
-        $detail_kitchenSets = KitchenSet::find($id);
+        $detail_kitchenSets = KitchenSet::find(Crypt::decrypt($id));
         $kitchenSets = KitchenSet::all();
         return view('kitchenSet.detail_kitchenSet', compact(["detail_kitchenSets", "kitchenSets"]));
     }
 
     public function update_kitchenSet( $id, Request $request )
     {
-        // $kitchenSets->update($request->except("_token", "update"));
         $kitchenSets = KitchenSet::find($id);
-        // $kitchenSets->satuan = $request->satuan;
-        $kitchenSets->panjang = $request->panjang;
-        $kitchenSets->lebar = $request->lebar;
-        $kitchenSets->tinggi = $request->tinggi;
-        //
-        if ( $request->tinggi <= 1 && $request->lebar >= 0.35 ) {
-            $kitchenSets->tinggi = $request->tinggi;
-            $kitchenSets->harga = $request->panjang * 1 * 1 * 1800.000;
 
-        } elseif ( $request->tinggi <= 1 && $request->lebar < 0.35 ) {
-            $kitchenSets->tinggi = $request->tinggi;
-            $kitchenSets->harga = $request->panjang * 1 * 1 * 1500.000;
+        $panjang = str_replace(',', '.', $request->panjang);
+        $lebar = str_replace(',', '.', $request->lebar);
+        $tinggi = str_replace(',', '.', $request->tinggi);
 
-        } elseif ( $request->tinggi <= 1 && $request->lebar >= 0.35 && $request->panjang <= 0.5 ) {
-            $kitchenSets->tinggi = $request->tinggi;
+        $kitchenSets->panjang = $panjang;
+        $kitchenSets->lebar = $lebar;
+        $kitchenSets->tinggi = $tinggi;
+
+        if ( $tinggi <= 1 && $lebar >= 0.35 ) {
+            $kitchenSets->tinggi = $tinggi;
+            $kitchenSets->harga = $panjang * 1 * 1 * 1800.000;
+
+        } elseif ( $tinggi <= 1 && $lebar < 0.35 ) {
+            $kitchenSets->tinggi = $tinggi;
+            $kitchenSets->harga = $panjang * 1 * 1 * 1500.000;
+
+        } elseif ( $tinggi <= 1 && $lebar >= 0.35 && $panjang <= 0.5 ) {
+            $kitchenSets->tinggi = $tinggi;
             $kitchenSets->harga = 1 * 1 * 1 * 1800.000;
 
-        } elseif ( $request->tinggi >= 1 && $request->lebar >= 0.35 && $request->panjang <= 0.5 ) {
-            $kitchenSets->tinggi = $request->tinggi;
-            $kitchenSets->harga = 1 * $request->lebar * $request->tinggi * 1800.000;
+        } elseif ( $tinggi >= 1 && $lebar >= 0.35 && $panjang <= 0.5 ) {
+            $kitchenSets->tinggi = $tinggi;
+            $kitchenSets->harga = 1 * $lebar * $tinggi * 1800.000;
 
-        } elseif ( $request->tinggi >= 1 && $request->lebar < 0.35 && $request->panjang <= 0.5 ) {
-            $kitchenSets->tinggi = $request->tinggi;
-            $kitchenSets->harga = 1 * 1 * $request->tinggi * 1300.000;
+        } elseif ( $tinggi >= 1 && $lebar < 0.35 && $panjang <= 0.5 ) {
+            $kitchenSets->tinggi = $tinggi;
+            $kitchenSets->harga = 1 * 1 * $tinggi * 1300.000;
         }
 
-        elseif ( $request->tinggi < 1 && $request->lebar < 0.35 && $request->panjang <= 0.5 ) {
-            $kitchenSets->tinggi = $request->tinggi;
+        elseif ( $tinggi < 1 && $lebar < 0.35 && $panjang <= 0.5 ) {
+            $kitchenSets->tinggi = $tinggi;
             $kitchenSets->harga = 1 * 1 * 1 * 1200.000;
         }
 
         else {
-            $kitchenSets->harga = $request->panjang * $request->lebar * $request->tinggi * 1800.000;
+            $kitchenSets->harga = $panjang * $lebar * $tinggi * 1800.000;
         }
 
         $kitchenSets->save();

@@ -111,7 +111,7 @@
                     <div class="col-lg-4" data-aos="fade-down" data-aos-delay="200">
                         <div class="item mb-4">
                             <div class="block-4 text-center">
-                                <a class="block-2-item" href="/categories/livingRoom/{{ $livingRoom->id }}/detail">
+                                <a class="block-2-item" href="/categories/livingRoom/{{ Crypt::encrypt($livingRoom->id) }}/detail">
                                     <figure class="block-4-image image mb-3">
                                         <img src="/image/items/{{ $livingRoom->image }}" alt="Image placeholder"
                                             class="img-fluid">
@@ -119,11 +119,11 @@
                                 </a>
 
                                 @can('admin')
-                                    <a href="/categories/livingRoom/{{ $livingRoom->id }}/edit" class="btn btn-dark card-link mx-4"><span class="icon icon-edit"></span> Edit </a>
-                                    <a href="/categories/livingRoom/{{ $livingRoom->id }}/delete" class="delete btn btn-danger card-link" data-id="{{ $livingRoom->id }}"><span class="icon icon-trash"></span> Hapus </a>
+                                    <a href="/categories/livingRoom/{{ Crypt::encrypt($livingRoom->id) }}/edit" class="btn btn-dark card-link mx-4"><span class="icon icon-edit"></span> Edit </a>
+                                    <a href="/categories/livingRoom/{{ Crypt::encrypt($livingRoom->id) }}/delete" class="delete btn btn-danger card-link" data-id="{{ $livingRoom->id }}"><span class="icon icon-trash"></span> Hapus </a>
                                 @endcan
                                 <div class="block-4-text p-4 text-left">
-                                    <h3><a href="/categories/livingRoom/{{ $livingRoom->id }}/detail">{{ $livingRoom->nama }}</a></h3>
+                                    <h3><a href="/categories/livingRoom/{{ Crypt::encrypt($livingRoom->id) }}/detail">{{ $livingRoom->nama }}</a></h3>
                                     <p class="mb-0">
                                         <?php
                                         $text = $livingRoom['deskripsi'];
@@ -266,7 +266,7 @@
                     <div class="col-lg-4" data-aos="fade-down" data-aos-delay="200">
                         <div class="item mb-4">
                             <div class="block-4 text-center">
-                                <a class="block-2-item" href="/categories/livingRoom/{{ $livingRoom->id }}/detail">
+                                <a class="block-2-item" href="/categories/livingRoom/{{ Crypt::encrypt($livingRoom->id) }}/detail">
                                     <figure class="block-4-image image mb-3">
                                         <img src="/image/items/{{ $livingRoom->image }}" alt="Image placeholder"
                                             class="img-fluid">
@@ -274,11 +274,11 @@
                                 </a>
 
                                 @can('admin')
-                                    <a href="/categories/livingRoom/{{ $livingRoom->id }}/edit" class="btn btn-dark card-link mx-4"><span class="icon icon-edit"></span> Edit </a>
-                                    <a href="/categories/livingRoom/{{ $livingRoom->id }}/delete" class="delete btn btn-danger card-link" data-id="{{ $livingRoom->id }}"><span class="icon icon-trash"></span> Hapus </a>
+                                    <a href="/categories/livingRoom/{{ Crypt::encrypt($livingRoom->id) }}/edit" class="btn btn-dark card-link mx-4"><span class="icon icon-edit"></span> Edit </a>
+                                    <a href="/categories/livingRoom/{{ Crypt::encrypt($livingRoom->id) }}/delete" class="delete btn btn-danger card-link" data-id="{{ $livingRoom->id }}"><span class="icon icon-trash"></span> Hapus </a>
                                 @endcan
                                 <div class="block-4-text p-4 text-left">
-                                    <h3><a href="/categories/livingRoom/{{ $livingRoom->id }}/detail">{{ $livingRoom->nama }}</a></h3>
+                                    <h3><a href="/categories/livingRoom/{{ Crypt::encrypt($livingRoom->id) }}/detail">{{ $livingRoom->nama }}</a></h3>
                                     <p class="mb-0">
                                         <?php
                                         $text = $livingRoom['deskripsi'];

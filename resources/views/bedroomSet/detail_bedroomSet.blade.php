@@ -166,7 +166,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="panjang" class="form-control col-sm-2 " id="panjang" value="{{ $detail_bedroomSets->panjang }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -178,7 +178,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="lebar" class="form-control col-sm-2 " id="lebar" value="{{ $detail_bedroomSets->lebar }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -190,7 +190,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="tinggi" class="form-control col-sm-2 " id="tinggi" value="{{ $detail_bedroomSets->tinggi }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -241,7 +241,7 @@
                             <img class="card-img rounded-0 img-fluid" src="/image/items/{{ $bedroomSet->image }}">
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white mt-2" href="/categories/bedroomSet/{{ $bedroomSet->id }}/detail"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="/categories/bedroomSet/{{ Crypt::encrypt($bedroomSet->id) }}/detail"><i class="far fa-eye"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -478,6 +478,10 @@
 
                                     <h6>Specification:</h6>
 
+                                    <div class="alert alert-danger w-50" role="alert">
+                                        Gunakan "." Bukan ","
+                                    </div>
+
                                     <ul class="list-unstyled pb-3">
                                         <li>
                                             <div class="mb-3 row">
@@ -485,7 +489,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="panjang" class="form-control col-sm-2 " id="panjang" value="{{ $detail_bedroomSets->panjang }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -497,7 +501,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="lebar" class="form-control col-sm-2 " id="lebar" value="{{ $detail_bedroomSets->lebar }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -509,7 +513,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="tinggi" class="form-control col-sm-2 " id="tinggi" value="{{ $detail_bedroomSets->tinggi }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text text-success rounded">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -560,7 +564,7 @@
                             <img class="card-img rounded-0 img-fluid" src="/image/items/{{ $bedroomSet->image }}">
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white mt-2" href="/categories/bedroomSet/{{ $bedroomSet->id }}}/detail"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="/categories/bedroomSet/{{ Crypt::encrypt($bedroomSet->id) }}/detail"><i class="far fa-eye"></i></a></li>
                                 </ul>
                             </div>
                         </div>

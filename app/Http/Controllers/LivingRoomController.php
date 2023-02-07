@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LivingRoom;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Intervention\Image\Facades\Image;
 
 class LivingRoomController extends Controller
@@ -48,13 +49,13 @@ class LivingRoomController extends Controller
 
     public function destroy_livingRoom( $id )
     {
-        $livingRooms = LivingRoom::find($id)->delete();
+        $livingRooms = LivingRoom::find(Crypt::decrypt($id))->delete();
         return redirect('/categories/livingRoom');
     }
 
     public function edit_pageLivingRoom($id)
     {
-        $livingRooms = LivingRoom::find($id);
+        $livingRooms = LivingRoom::find(Crypt::decrypt($id));
         return view('livingRoom.editLiving_Room', compact(['livingRooms']));
     }
 
@@ -86,53 +87,56 @@ class LivingRoomController extends Controller
 
     public function detail_pageLivingRoom($id)
     {
-        $detail_livingRooms = LivingRoom::find($id);
+        $detail_livingRooms = LivingRoom::find(Crypt::decrypt($id));
         $livingRooms = LivingRoom::all();
         return view('livingRoom.detail_livingRoom', compact(["detail_livingRooms", "livingRooms"]));
     }
 
     public function update_livingRoom_spec($id, Request $request)
     {
-        // $livingRooms->update($request->except("_token", "update"));
         $livingRooms = LivingRoom::find($id);
-        // $livingRooms->satuan = $request->satuan;
-        $livingRooms->panjang = $request->panjang;
-        $livingRooms->lebar = $request->lebar;
-        $livingRooms->tinggi = $request->tinggi;
-        //
-        if ( $request->tinggi <= 1 && $request->lebar >= 0.35 ) {
-            $livingRooms->tinggi = $request->tinggi;
-            $livingRooms->harga = $request->panjang * 1 * 1 * 1800.000;
 
-        } elseif ( $request->tinggi <= 1 && $request->lebar < 0.35 ) {
-            $livingRooms->tinggi = $request->tinggi;
-            $livingRooms->harga = $request->panjang * 1 * 1 * 1500.000;
+        $panjang = str_replace(',', '.', $request->panjang);
+        $lebar = str_replace(',', '.', $request->lebar);
+        $tinggi = str_replace(',', '.', $request->tinggi);
 
-        } elseif ( $request->tinggi <= 1 && $request->lebar >= 0.35 && $request->panjang <= 0.5 ) {
-            $livingRooms->tinggi = $request->tinggi;
+        $livingRooms->panjang = $panjang;
+        $livingRooms->lebar = $lebar;
+        $livingRooms->tinggi = $tinggi;
+
+        if ( $tinggi <= 1 && $lebar >= 0.35 ) {
+            $livingRooms->tinggi = $tinggi;
+            $livingRooms->harga = $panjang * 1 * 1 * 1800.000;
+
+        } elseif ( $tinggi <= 1 && $lebar < 0.35 ) {
+            $livingRooms->tinggi = $tinggi;
+            $livingRooms->harga = $panjang * 1 * 1 * 1500.000;
+
+        } elseif ( $tinggi <= 1 && $lebar >= 0.35 && $panjang <= 0.5 ) {
+            $livingRooms->tinggi = $tinggi;
             $livingRooms->harga = 1 * 1 * 1 * 1800.000;
 
-        } elseif ( $request->tinggi >= 1 && $request->lebar >= 0.35 && $request->panjang <= 0.5 ) {
-            $livingRooms->tinggi = $request->tinggi;
-            $livingRooms->harga = 1 * $request->lebar * $request->tinggi * 1800.000;
+        } elseif ( $tinggi >= 1 && $lebar >= 0.35 && $panjang <= 0.5 ) {
+            $livingRooms->tinggi = $tinggi;
+            $livingRooms->harga = 1 * $lebar * $tinggi * 1800.000;
 
-        } elseif ( $request->tinggi >= 0.8 && $request->lebar < 0.35 && $request->panjang <= 0.5 ) {
-            $livingRooms->tinggi = $request->tinggi;
-            $livingRooms->harga = 1 * 1 * $request->tinggi * 1300.000;
+        } elseif ( $tinggi >= 0.8 && $lebar < 0.35 && $panjang <= 0.5 ) {
+            $livingRooms->tinggi = $tinggi;
+            $livingRooms->harga = 1 * 1 * $tinggi * 1300.000;
         }
 
-        elseif ( $request->tinggi < 1 && $request->lebar < 0.35 && $request->panjang <= 0.5 ) {
-            $livingRooms->tinggi = $request->tinggi;
+        elseif ( $tinggi < 1 && $lebar < 0.35 && $panjang <= 0.5 ) {
+            $livingRooms->tinggi = $tinggi;
             $livingRooms->harga = 1 * 1 * 1 * 1200.000;
         }
 
-        elseif ( $request->tinggi >= 1 && $request->lebar >= 0.35 && $request->panjang >= 0.5) {
-            $livingRooms->tinggi = $request->tinggi;
-            $livingRooms->harga = $request->tinggi * 1 * 1 * 1800.000;
+        elseif ( $tinggi >= 1 && $lebar >= 0.35 && $panjang >= 0.5) {
+            $livingRooms->tinggi = $tinggi;
+            $livingRooms->harga = $tinggi * 1 * 1 * 1800.000;
         }
 
         else {
-            $livingRooms->harga = $request->panjang * $request->lebar * $request->tinggi * 1800.000;
+            $livingRooms->harga = $panjang * $lebar * $tinggi * 1800.000;
         }
 
         $livingRooms->save();

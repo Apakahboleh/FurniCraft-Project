@@ -113,7 +113,7 @@
                     <div class="col-lg-4" data-aos="fade-down" data-aos-delay="200">
                         <div class="item mb-4">
                             <div class="block-4 text-center">
-                                <a class="block-2-item" href="/categories/bedroomSet/{{ $bedroomSet->id }}/detail">
+                                <a class="block-2-item" href="/categories/bedroomSet/{{ Crypt::encrypt($bedroomSet->id) }}/detail">
                                     <figure class="block-4-image image mb-3">
                                         <img src="/image/items/{{ $bedroomSet->image }}" alt="Image placeholder"
                                             class="img-fluid">
@@ -121,11 +121,11 @@
                                 </a>
 
                                 @can('admin')
-                                    <a href="/categories/bedroomSet/{{ $bedroomSet->id }}/edit" class="btn btn-dark card-link mx-4"><span class="icon icon-edit"></span> Edit </a>
-                                    <a href="/categories/bedroomSet/{{ $bedroomSet->id }}/delete" class="delete btn btn-danger card-link" data-id="{{ $bedroomSet->id }}"><span class="icon icon-trash"></span> Hapus </a>
+                                    <a href="/categories/bedroomSet/{{ Crypt::encrypt($bedroomSet->id) }}/edit" class="btn btn-dark card-link mx-4"><span class="icon icon-edit"></span> Edit </a>
+                                    <a href="/categories/bedroomSet/{{ Crypt::encrypt($bedroomSet->id) }}/delete" class="delete btn btn-danger card-link" data-id="{{ $bedroomSet->id }}"><span class="icon icon-trash"></span> Hapus </a>
                                 @endcan
                                 <div class="block-4-text p-4 text-left">
-                                    <h3><a href="/categories/bedroomSet/{{ $bedroomSet->id }}/detail">{{ $bedroomSet->nama }}</a></h3>
+                                    <h3><a href="/categories/bedroomSet/{{ Crypt::encrypt($bedroomSet->id) }}/detail">{{ $bedroomSet->nama }}</a></h3>
                                     <p class="mb-0">
                                         <?php
                                         $text = $bedroomSet['deskripsi'];
@@ -269,7 +269,7 @@
                     <div class="col-lg-4" data-aos="fade-down" data-aos-delay="200">
                         <div class="item mb-4">
                             <div class="block-4 text-center">
-                                <a class="block-2-item" href="/categories/bedroomSet/{{ $bedroomSet->id }}/detail">
+                                <a class="block-2-item" href="/categories/bedroomSet/{{ Crypt::encrypt($bedroomSet->id) }}/detail">
                                     <figure class="block-4-image image mb-3">
                                         <img src="/image/items/{{ $bedroomSet->image }}" alt="Image placeholder"
                                             class="img-fluid">
@@ -277,11 +277,11 @@
                                 </a>
 
                                 @can('admin')
-                                    <a href="/categories/bedroomSet/{{ $bedroomSet->id }}/edit" class="btn btn-dark card-link mx-4"><span class="icon icon-edit"></span> Edit </a>
-                                    <a href="/categories/bedroomSet/{{ $bedroomSet->id }}/delete" class="delete btn btn-danger card-link" data-id="{{ $bedroomSet->id }}"><span class="icon icon-trash"></span> Hapus </a>
+                                    <a href="/categories/bedroomSet/{{ Crypt::encrypt($bedroomSet->id) }}/edit" class="btn btn-dark card-link mx-4"><span class="icon icon-edit"></span> Edit </a>
+                                    <a href="/categories/bedroomSet/{{ Crypt::encrypt($bedroomSet->id) }}/delete" class="delete btn btn-danger card-link" data-id="{{ $bedroomSet->id }}"><span class="icon icon-trash"></span> Hapus </a>
                                 @endcan
                                 <div class="block-4-text p-4 text-left">
-                                    <h3><a href="/categories/bedroomSet/{{ $bedroomSet->id }}/detail">{{ $bedroomSet->nama }}</a></h3>
+                                    <h3><a href="/categories/bedroomSet/{{ Crypt::encrypt($bedroomSet->id) }}/detail">{{ $bedroomSet->nama }}</a></h3>
                                     <p class="mb-0">
                                         <?php
                                         $text = $bedroomSet['deskripsi'];

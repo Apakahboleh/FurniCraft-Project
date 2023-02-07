@@ -34,7 +34,7 @@
                             <div class="col-lg-4" data-aos="fade" data-aos-delay="100">
                                 <div class="item mb-4">
                                     <div class="block-4 text-center">
-                                        <a class="block-2-item" href="/categories/kitchenSet/{{ $furniture->id }}/detail">
+                                        <a class="block-2-item" href="/categories/kitchenSet/{{ Crypt::encrypt($furniture->id) }}/detail">
                                             <figure class="block-4-image image mb-3">
                                                 <img src="/image/items/{{ $furniture->image }}" alt="Image placeholder"
                                                     class="img-fluid">
@@ -42,13 +42,13 @@
                                         </a>
 
                                         @can('admin')
-                                            <a href="/categories/kitchenSet/{{ $furniture->id }}/edit"
+                                            <a href="/categories/kitchenSet/{{ Crypt::encrypt($furniture->id) }}/edit"
                                                 class="btn btn-primary card-link mx-4">Edit</a>
-                                            <a href="/categories/kitchenSet/{{ $furniture->id }}/delete"
-                                                class="deleteKitchen btn btn-danger card-link" data-id-kitchen="{{ $furniture->id }}">Hapus</a>
+                                            <a href="/categories/kitchenSet/{{ Crypt::encrypt($furniture->id) }}/delete"
+                                                class="deleteKitchen btn btn-danger card-link" data-id-kitchen="{{ Crypt::encrypt($furniture->id) }}">Hapus</a>
                                         @endcan
                                         <div class="block-4-text p-4">
-                                            <h3><a href="/categories/kitchenSet/{{ $furniture->id }}/detail">{{ $furniture->nama }}</a></h3>
+                                            <h3><a href="/categories/kitchenSet/{{ Crypt::encrypt($furniture->id) }}/detail">{{ $furniture->nama }}</a></h3>
                                             <p class="mb-0">
                                                 <?php
                                                 $text = $furniture['deskripsi'];
@@ -70,7 +70,7 @@
                         <div class="col-lg-4" data-aos="fade" data-aos-delay="200">
                             <div class="item mb-4">
                                 <div class="block-4 text-center">
-                                    <a class="block-2-item" href="/categories/livingRoom/{{ $furniture->id }}/detail">
+                                    <a class="block-2-item" href="/categories/livingRoom/{{ Crypt::encrypt($furniture->id) }}/detail">
                                         <figure class="block-4-image image mb-3">
                                             <img src="/image/items/{{ $furniture->image }}" alt="Image placeholder"
                                                 class="img-fluid">
@@ -78,13 +78,13 @@
                                     </a>
 
                                     @can('admin')
-                                        <a href="/categories/livingRoom/{{ $furniture->id }}/edit"
+                                        <a href="/categories/livingRoom/{{ Crypt::encrypt($furniture->id) }}/edit"
                                             class="btn btn-primary card-link mx-4">Edit</a>
-                                        <a href="/categories/livingRoom/{{ $furniture->id }}/delete"
-                                            class="deleteLivingRoom btn btn-danger card-link" data-id-livingRoom="{{ $furniture->id }}">Hapus</a>
+                                        <a href="/categories/livingRoom/{{ Crypt::encrypt($furniture->id) }}/delete"
+                                            class="deleteLivingRoom btn btn-danger card-link" data-id-livingRoom="{{ Crypt::encrypt($furniture->id) }}">Hapus</a>
                                     @endcan
                                     <div class="block-4-text p-4">
-                                        <h3><a href="/categories/livingRoom/{{ $furniture->id }}/detail">{{ $furniture->nama }}</a></h3>
+                                        <h3><a href="/categories/livingRoom/{{ Crypt::encrypt($furniture->id)  }}/detail">{{ $furniture->nama }}</a></h3>
                                         <p class="mb-0">
                                             <?php
                                             $text = $furniture['deskripsi'];
@@ -107,7 +107,7 @@
                         <div class="col-lg-4" data-aos="fade" data-aos-delay="300">
                             <div class="item">
                                 <div class="block-4 text-center">
-                                    <a class="block-2-item" href="/categories/bedroomSet/{{ $furniture->id }}/detail">
+                                    <a class="block-2-item" href="/categories/bedroomSet/{{ Crypt::encrypt($furniture->id) }}/detail">
                                         <figure class="block-4-image image mb-3">
                                             <img src="/image/items/{{ $furniture->image }}" alt="Image placeholder"
                                                 class="img-fluid">
@@ -115,13 +115,13 @@
                                     </a>
 
                                     @can('admin')
-                                        <a href="/categories/bedroomSet/{{ $furniture->id }}/edit"
+                                        <a href="/categories/bedroomSet/{{ Crypt::encrypt($furniture->id) }}/edit"
                                             class="btn btn-primary card-link mx-4">Edit</a>
-                                        <a href="/categories/bedroomSet/{{ $furniture->id }}/delete"
-                                            class="deleteBedroom btn btn-danger card-link" data-id-bedroom="{{ $furniture->id }}">Hapus</a>
+                                        <a href="/categories/bedroomSet/{{ Crypt::encrypt($furniture->id) }}/delete"
+                                            class="deleteBedroom btn btn-danger card-link" data-id-bedroom="{{ Crypt::encrypt($furniture->id) }}">Hapus</a>
                                     @endcan
                                     <div class="block-4-text p-4">
-                                        <h3><a href="/categories/bedroomSet/{{ $furniture->id }}/detail">{{ $furniture->nama }}</a></h3>
+                                        <h3><a href="/categories/bedroomSet/{{ Crypt::encrypt($furniture->id) }}/detail">{{ $furniture->nama }}</a></h3>
                                         <p class="mb-0">
                                             <?php
                                             $text = $furniture['deskripsi'];
@@ -143,7 +143,7 @@
                     <div class="col-lg-4" data-aos="fade" data-aos-delay="300">
                         <div class="item">
                             <div class="block-4 text-center">
-                                <a class="block-2-item" href="/categories/office_furnitures/{{ $furniture->id }}/detail">
+                                <a class="block-2-item" href="/categories/office_furnitures/{{ Crypt::encrypt($furniture->id) }}/detail">
                                     <figure class="block-4-image image mb-3">
                                         <img src="/image/items/{{ $furniture->image }}" alt="Image placeholder"
                                             class="img-fluid">
@@ -151,13 +151,13 @@
                                 </a>
 
                                 @can('admin')
-                                    <a href="/categories/office_furnitures/{{ $furniture->id }}/edit"
+                                    <a href="/categories/office_furnitures/{{ Crypt::encrypt($furniture->id) }}/edit"
                                         class="btn btn-primary card-link mx-4">Edit</a>
-                                    <a href="/categories/office_furnitures/{{ $furniture->id }}/delete"
-                                        class="deleteOffice btn btn-danger card-link" data-id-office="{{ $furniture->id }}">Hapus</a>
+                                    <a href="/categories/office_furnitures/{{ Crypt::encrypt($furniture->id) }}/delete"
+                                        class="deleteOffice btn btn-danger card-link" data-id-office="{{ Crypt::encrypt($furniture->id) }}">Hapus</a>
                                 @endcan
                                 <div class="block-4-text p-4">
-                                    <h3><a href="/categories/office_furnitures/{{ $furniture->id }}/detail">{{ $furniture->nama }}</a></h3>
+                                    <h3><a href="/categories/office_furnitures/{{ Crypt::encrypt($furniture->id) }}/detail">{{ $furniture->nama }}</a></h3>
                                     <p class="mb-0">
                                         <?php
                                         $text = $furniture['deskripsi'];
@@ -330,7 +330,7 @@
                             <div class="col-lg-4" data-aos="fade" data-aos-delay="100">
                                 <div class="item mb-4">
                                     <div class="block-4 text-center">
-                                        <a class="block-2-item" href="/categories/kitchenSet/{{ $furniture->id }}/detail">
+                                        <a class="block-2-item" href="/categories/kitchenSet/{{ Crypt::encrypt($furniture->id) }}/detail">
                                             <figure class="block-4-image image mb-3">
                                                 <img src="/image/items/{{ $furniture->image }}" alt="Image placeholder"
                                                     class="img-fluid">
@@ -338,13 +338,13 @@
                                         </a>
 
                                         @can('admin')
-                                            <a href="/categories/kitchenSet/{{ $furniture->id }}/edit"
+                                            <a href="/categories/kitchenSet/{{ Crypt::encrypt($furniture->id) }}/edit"
                                                 class="btn btn-primary card-link mx-4">Edit</a>
-                                            <a href="/categories/kitchenSet/{{ $furniture->id }}/delete"
-                                                class="deleteKitchen btn btn-danger card-link" data-id-kitchen="{{ $furniture->id }}">Hapus</a>
+                                            <a href="/categories/kitchenSet/{{ Crypt::encrypt($furniture->id) }}/delete"
+                                                class="deleteKitchen btn btn-danger card-link" data-id-kitchen="{{ Crypt::encrypt($furniture->id) }}">Hapus</a>
                                         @endcan
                                         <div class="block-4-text p-4">
-                                            <h3><a href="/categories/kitchenSet/{{ $furniture->id }}/detail">{{ $furniture->nama }}</a></h3>
+                                            <h3><a href="/categories/kitchenSet/{{ Crypt::encrypt($furniture->id) }}/detail">{{ $furniture->nama }}</a></h3>
                                             <p class="mb-0">
                                                 <?php
                                                 $text = $furniture['deskripsi'];
@@ -366,7 +366,7 @@
                         <div class="col-lg-4" data-aos="fade" data-aos-delay="200">
                             <div class="item mb-4">
                                 <div class="block-4 text-center">
-                                    <a class="block-2-item" href="/categories/livingRoom/{{ $furniture->id }}/detail">
+                                    <a class="block-2-item" href="/categories/livingRoom/{{ Crypt::encrypt($furniture->id)  }}/detail">
                                         <figure class="block-4-image image mb-3">
                                             <img src="/image/items/{{ $furniture->image }}" alt="Image placeholder"
                                                 class="img-fluid">
@@ -374,13 +374,13 @@
                                     </a>
 
                                     @can('admin')
-                                        <a href="/categories/livingRoom/{{ $furniture->id }}/edit"
+                                        <a href="/categories/livingRoom/{{ Crypt::encrypt($furniture->id) }}/edit"
                                             class="btn btn-primary card-link mx-4">Edit</a>
-                                        <a href="/categories/livingRoom/{{ $furniture->id }}/delete"
-                                            class="deleteLivingRoom btn btn-danger card-link" data-id-livingRoom="{{ $furniture->id }}">Hapus</a>
+                                        <a href="/categories/livingRoom/{{ Crypt::encrypt($furniture->id) }}/delete"
+                                            class="deleteLivingRoom btn btn-danger card-link" data-id-livingRoom="{{ Crypt::encrypt($furniture->id) }}">Hapus</a>
                                     @endcan
                                     <div class="block-4-text p-4">
-                                        <h3><a href="/categories/livingRoom/{{ $furniture->id }}/detail">{{ $furniture->nama }}</a></h3>
+                                        <h3><a href="/categories/livingRoom/{{ Crypt::encrypt($furniture->id) }}/detail">{{ $furniture->nama }}</a></h3>
                                         <p class="mb-0">
                                             <?php
                                             $text = $furniture['deskripsi'];
@@ -403,7 +403,7 @@
                         <div class="col-lg-4" data-aos="fade" data-aos-delay="300">
                             <div class="item">
                                 <div class="block-4 text-center">
-                                    <a class="block-2-item" href="/categories/bedroomSet/{{ $furniture->id }}/detail">
+                                    <a class="block-2-item" href="/categories/bedroomSet/{{ Crypt::encrypt($furniture->id) }}/detail">
                                         <figure class="block-4-image image mb-3">
                                             <img src="/image/items/{{ $furniture->image }}" alt="Image placeholder"
                                                 class="img-fluid">
@@ -411,13 +411,13 @@
                                     </a>
 
                                     @can('admin')
-                                        <a href="/categories/bedroomSet/{{ $furniture->id }}/edit"
+                                        <a href="/categories/bedroomSet/{{ Crypt::encrypt($furniture->id) }}/edit"
                                             class="btn btn-primary card-link mx-4">Edit</a>
-                                        <a href="/categories/bedroomSet/{{ $furniture->id }}/delete"
-                                            class="deleteBedroom btn btn-danger card-link" data-id-bedroom="{{ $furniture->id }}">Hapus</a>
+                                        <a href="/categories/bedroomSet/{{ Crypt::encrypt($furniture->id) }}/delete"
+                                            class="deleteBedroom btn btn-danger card-link" data-id-bedroom="{{ Crypt::encrypt($furniture->id) }}">Hapus</a>
                                     @endcan
                                     <div class="block-4-text p-4">
-                                        <h3><a href="/categories/bedroomSet/{{ $furniture->id }}/detail">{{ $furniture->nama }}</a></h3>
+                                        <h3><a href="/categories/bedroomSet/{{ Crypt::encrypt($furniture->id) }}/detail">{{ $furniture->nama }}</a></h3>
                                         <p class="mb-0">
                                             <?php
                                             $text = $furniture['deskripsi'];
@@ -439,7 +439,7 @@
                     <div class="col-lg-4" data-aos="fade" data-aos-delay="300">
                         <div class="item">
                             <div class="block-4 text-center">
-                                <a class="block-2-item" href="/categories/office_furnitures/{{ $furniture->id }}/detail">
+                                <a class="block-2-item" href="/categories/office_furnitures/{{ Crypt::encrypt($furniture->id) }}/detail">
                                     <figure class="block-4-image image mb-3">
                                         <img src="/image/items/{{ $furniture->image }}" alt="Image placeholder"
                                             class="img-fluid">
@@ -447,13 +447,13 @@
                                 </a>
 
                                 @can('admin')
-                                    <a href="/categories/office_furnitures/{{ $furniture->id }}/edit"
+                                    <a href="/categories/office_furnitures/{{ Crypt::encrypt($furniture->id) }}/edit"
                                         class="btn btn-primary card-link mx-4">Edit</a>
-                                    <a href="/categories/office_furnitures/{{ $furniture->id }}/delete"
-                                        class="deleteOffice btn btn-danger card-link" data-id-office="{{ $furniture->id }}">Hapus</a>
+                                    <a href="/categories/office_furnitures/{{ Crypt::encrypt($furniture->id) }}/delete"
+                                        class="deleteOffice btn btn-danger card-link" data-id-office="{{ Crypt::encrypt($furniture->id) }}">Hapus</a>
                                 @endcan
                                 <div class="block-4-text p-4">
-                                    <h3><a href="/categories/office_furnitures/{{ $furniture->id }}/detail">{{ $furniture->nama }}</a></h3>
+                                    <h3><a href="/categories/office_furnitures/{{ Crypt::encrypt($furniture->id) }}/detail">{{ $furniture->nama }}</a></h3>
                                     <p class="mb-0">
                                         <?php
                                         $text = $furniture['deskripsi'];
@@ -590,4 +590,4 @@
     </script>
 
     </html>
-@endif  
+@endif

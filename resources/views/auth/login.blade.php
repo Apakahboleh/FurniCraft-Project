@@ -144,3 +144,11 @@
         toastr.success('Password Kamu Sukses Di Rubah. Gunakan Dengan Sebaik Mungkin🥰')
     @endif
 </script>
+
+<script>
+    $(function() {
+        $( "form" ).submit(function() {
+            $('#loader').show();
+        });
+    });
+</script>

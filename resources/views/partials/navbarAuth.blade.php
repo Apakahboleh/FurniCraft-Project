@@ -31,14 +31,11 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
     <link rel="stylesheet" href="/css/style1.css">
 
     <link rel="stylesheet" href="/css/normalize.css">
-
-    <style>
-
-    </style>
-
 </head>
 
 <body>
+    <div id="loader" class="loader"></div>
+
     <div class="site-wrap">
         <!-- HEADER START  -->
 

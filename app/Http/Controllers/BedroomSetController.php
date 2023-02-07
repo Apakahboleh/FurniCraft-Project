@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BedroomSet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Intervention\Image\Facades\Image;
 
 class BedroomSetController extends Controller
@@ -36,7 +37,7 @@ class BedroomSetController extends Controller
 
     public function edit_pageBedroom($id)
     {
-        $bedroomSets = BedroomSet::find($id);
+        $bedroomSets = BedroomSet::find(Crypt::decrypt($id));
         return view('bedroomSet.editBedroom', compact(['bedroomSets']));
     }
 
@@ -83,54 +84,57 @@ class BedroomSetController extends Controller
 
     public function destroy_bedroom( $id )
     {
-        $bedroomSets = BedroomSet::find($id)->delete();
+        $bedroomSets = BedroomSet::find(Crypt::decrypt($id))->delete();
         return redirect('/categories/bedroomSet');
     }
 
     public function detail_pageBedroom($id)
     {
-        $detail_bedroomSets = BedroomSet::find($id);
+        $detail_bedroomSets = BedroomSet::find(Crypt::decrypt($id));
         $bedroomSets = BedroomSet::all();
         return view('bedroomSet.detail_bedroomSet', compact(["detail_bedroomSets", "bedroomSets"]));
     }
 
     public function update_bedroom_spec($id, Request $request)
     {
-        // $bedroomSets->update($request->except("_token", "update"));
         $bedroomSets = BedroomSet::find($id);
-        // $bedroomSets->satuan = $request->satuan;
-        $bedroomSets->panjang = $request->panjang;
-        $bedroomSets->lebar = $request->lebar;
-        $bedroomSets->tinggi = $request->tinggi;
-        //
-        if ( $request->tinggi <= 1 && $request->lebar >= 0.35 ) {
-            $bedroomSets->tinggi = $request->tinggi;
-            $bedroomSets->harga = $request->panjang * 1 * 1 * 1800.000;
 
-        } elseif ( $request->tinggi <= 1 && $request->lebar < 0.35 ) {
-            $bedroomSets->tinggi = $request->tinggi;
-            $bedroomSets->harga = $request->panjang * 1 * 1 * 1500.000;
+        $panjang = str_replace(',', '.', $request->panjang);
+        $lebar = str_replace(',', '.', $request->lebar);
+        $tinggi = str_replace(',', '.', $request->tinggi);
 
-        } elseif ( $request->tinggi <= 1 && $request->lebar >= 0.35 && $request->panjang <= 0.5 ) {
-            $bedroomSets->tinggi = $request->tinggi;
+        $bedroomSets->panjang = $panjang;
+        $bedroomSets->lebar = $lebar;
+        $bedroomSets->tinggi = $tinggi;
+
+        if ( $tinggi <= 1 && $lebar >= 0.35 ) {
+            $bedroomSets->tinggi = $tinggi;
+            $bedroomSets->harga = $panjang * 1 * 1 * 1800.000;
+
+        } elseif ( $tinggi <= 1 && $lebar < 0.35 ) {
+            $bedroomSets->tinggi = $tinggi;
+            $bedroomSets->harga = $panjang * 1 * 1 * 1500.000;
+
+        } elseif ( $tinggi <= 1 && $lebar >= 0.35 && $panjang <= 0.5 ) {
+            $bedroomSets->tinggi = $tinggi;
             $bedroomSets->harga = 1 * 1 * 1 * 1800.000;
 
-        } elseif ( $request->tinggi >= 1 && $request->lebar >= 0.35 && $request->panjang <= 0.5 ) {
-            $bedroomSets->tinggi = $request->tinggi;
-            $bedroomSets->harga = 1 * $request->lebar * $request->tinggi * 1800.000;
+        } elseif ( $tinggi >= 1 && $lebar >= 0.35 && $panjang <= 0.5 ) {
+            $bedroomSets->tinggi = $tinggi;
+            $bedroomSets->harga = 1 * $lebar * $tinggi * 1800.000;
 
-        } elseif ( $request->tinggi >= 1 && $request->lebar < 0.35 && $request->panjang <= 0.5 ) {
-            $bedroomSets->tinggi = $request->tinggi;
-            $bedroomSets->harga = 1 * 1 * $request->tinggi * 1300.000;
+        } elseif ( $tinggi >= 1 && $lebar < 0.35 && $panjang <= 0.5 ) {
+            $bedroomSets->tinggi = $tinggi;
+            $bedroomSets->harga = 1 * 1 * $tinggi * 1300.000;
         }
 
-        elseif ( $request->tinggi < 1 && $request->lebar < 0.35 && $request->panjang <= 0.5 ) {
-            $bedroomSets->tinggi = $request->tinggi;
+        elseif ( $tinggi < 1 && $lebar < 0.35 && $panjang <= 0.5 ) {
+            $bedroomSets->tinggi = $tinggi;
             $bedroomSets->harga = 1 * 1 * 1 * 1200.000;
         }
 
         else {
-            $bedroomSets->harga = $request->panjang * $request->lebar * $request->tinggi * 1800.000;
+            $bedroomSets->harga = $panjang * $lebar * $tinggi * 1800.000;
         }
 
         $bedroomSets->save();

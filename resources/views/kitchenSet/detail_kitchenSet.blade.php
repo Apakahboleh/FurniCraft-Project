@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
@@ -22,6 +22,7 @@
     <!-- Slick -->
     <link rel="stylesheet" type="text/css" href="/detail_furniture/css/slick.min.css">
     <link rel="stylesheet" type="text/css" href="/detail_furniture/css/slick-theme.css">
+
 </head>
 <body>
         <!-- Open Content -->
@@ -163,7 +164,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="panjang" class="form-control col-sm-2 " id="panjang" value="{{ $detail_kitchenSets->panjang }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text rounded text-success">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,7 +176,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="lebar" class="form-control col-sm-2 " id="lebar" value="{{ $detail_kitchenSets->lebar }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text rounded text-success">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,7 +188,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="tinggi" class="form-control col-sm-2 " id="tinggi" value="{{ $detail_kitchenSets->tinggi }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text rounded text-success">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -196,43 +197,6 @@
                                     <button type="submit" name="update" class="btn btn-success mb-3">Simpan Perubahan</button>
                                 </form>
 
-                                {{-- <form action="/cart/{{ $detail_kitchenSets->id }}/add" method="post">
-                                    @csrf
-                                    @method('put')
-
-                                    <input type="hidden" name="nama" value="{{ $detail_kitchenSets->nama }}">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <input type="hidden" name="image" value="{{ $detail_kitchenSets->image }}">
-                                        </div>
-                                        <div class="row">
-                                            <ul class="list-inline pb-3">
-                                                <li class="list-inline-item text-right">Jumlah : </li>
-
-                                                <li class="list-inline-item">
-                                                    <div class="input-group mb-3 mx-auto" style="max-width: 120px;">
-                                                        <div class="input-group-prepend">
-                                                            <button class="btn btn-outline-success js-btn-minus"
-                                                                type="button">&minus;</button>
-                                                        </div>
-                                                        <input type="text" name="quantity" id="quantity" class="form-control text-center" value="1" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                        <div class="input-group-append">
-                                                            <button class="btn btn-outline-success js-btn-plus"
-                                                                type="button">&plus;</button>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="row pb-3">
-                                        <input type="hidden" name="harga" value="{{ $detail_kitchenSets->harga }}">
-                                        <div class="col d-grid">
-                                            <button type="submit" class="w-100 btn btn-success btn-lg" name="add_cart" value="add_cart">Add To Cart</button>
-                                        </div>
-                                    </div>
-                                </form> --}}
                                 <div class="row pb-3">
                                     <div class="col d-grid">
                                         @if ($detail_kitchenSets->panjang == NULL || $detail_kitchenSets->lebar == NULL || $detail_kitchenSets->tinggi == NULL)
@@ -275,7 +239,7 @@
                             <img class="card-img rounded-0 img-fluid" src="/image/items/{{ $kitchenSet->image }}">
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white mt-2" href="/categories/kitchenSet/{{ $kitchenSet->id }}/detail"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="/categories/kitchenSet/{{ Crypt::encrypt($kitchenSet->id) }}/detail"><i class="far fa-eye"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -517,7 +481,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="panjang" class="form-control col-sm-2 " id="panjang" value="{{ $detail_kitchenSets->panjang }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text rounded text-success">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -529,7 +493,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="lebar" class="form-control col-sm-2 " id="lebar" value="{{ $detail_kitchenSets->lebar }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text rounded text-success">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -541,7 +505,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="text" name="tinggi" class="form-control col-sm-2 " id="tinggi" value="{{ $detail_kitchenSets->tinggi }}">
-                                                        <div class="input-group-text rounded">m</div>
+                                                        <div class="input-group-text rounded text-success">m</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -550,43 +514,6 @@
                                     <button type="submit" name="update" class="btn btn-success mb-3">Simpan Perubahan</button>
                                 </form>
 
-                                {{-- <form action="/cart/{{ $detail_kitchenSets->id }}/add" method="post">
-                                    @csrf
-                                    @method('put')
-
-                                    <input type="hidden" name="nama" value="{{ $detail_kitchenSets->nama }}">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <input type="hidden" name="image" value="{{ $detail_kitchenSets->image }}">
-                                        </div>
-                                        <div class="row">
-                                            <ul class="list-inline pb-3">
-                                                <li class="list-inline-item text-right">Jumlah : </li>
-
-                                                <li class="list-inline-item">
-                                                    <div class="input-group mb-3 mx-auto" style="max-width: 120px;">
-                                                        <div class="input-group-prepend">
-                                                            <button class="btn btn-outline-success js-btn-minus"
-                                                                type="button">&minus;</button>
-                                                        </div>
-                                                        <input type="text" name="quantity" id="quantity" class="form-control text-center" value="1" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                        <div class="input-group-append">
-                                                            <button class="btn btn-outline-success js-btn-plus"
-                                                                type="button">&plus;</button>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="row pb-3">
-                                        <input type="hidden" name="harga" value="{{ $detail_kitchenSets->harga }}">
-                                        <div class="col d-grid">
-                                            <button type="submit" class="w-100 btn btn-success btn-lg" name="add_cart" value="add_cart">Add To Cart</button>
-                                        </div>
-                                    </div>
-                                </form> --}}
                                 <div class="row pb-3">
                                     <div class="col d-grid">
                                         @if ($detail_kitchenSets->panjang == NULL || $detail_kitchenSets->lebar == NULL || $detail_kitchenSets->tinggi == NULL)
@@ -629,7 +556,7 @@
                             <img class="card-img rounded-0 img-fluid" src="/image/items/{{ $kitchenSet->image }}">
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white mt-2" href="/categories/kitchenSet/{{ $kitchenSet->id }}}/detail"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="/categories/kitchenSet/{{ Crypt::encrypt($kitchenSet->id) }}/detail"><i class="far fa-eye"></i></a></li>
                                 </ul>
                             </div>
                         </div>
