@@ -171,7 +171,7 @@
                                                             echo $text;
                                                         }
                                                         ?></p>
-                                                    <p class="text-success font-weight-bold"><a href="/categories/livingRoom/{{ $products->id }}/detail">Tentukan Hargamu</a></p>
+                                                    <p class="text-success font-weight-bold"><a href="/categories/livingRoom/{{ Crypt::encrypt($products->id) }}/detail">Tentukan Hargamu</a></p>
                                                 </div>
                                             </div>
                                         </div>
