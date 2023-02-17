@@ -13,21 +13,37 @@
         <div class="container" data-aos-delay="400" data-aos="fade-up">
             <div class="row d-flex">
                 <div class="col-md-6 mt-5">
-                    <h1 style="font-size: 50px;">Tentang Kami</h1>
+                    <h1 style="font-size: 50px;" class="text-success">Tentang Kami</h1>
 
-                    <p>Get in touch with our teams via maps or phone.</p>
+                    <h5 class="text-success mb-3">Get in touch with our teams via maps or phone.</h5>
+                    <p>Email : @.gmail.com</p>
                     <p>Alamat : Jl.Kaligawe Raya No. 96 B</p>
-                    <hr style="height: 1px; margin-left: 0;" width="200px">
+                    <hr style="height: 10px; margin-left: 0; width: 300px;">
                     <p>Phone : (+62) 667 962 667</p>
+
+                    <div class="how-bor2">
+                        <div class="hov-img0">
+                            <img src="/images/about/about_2.jpg" class="rounded" alt="IMG">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-6 mt-5">
-                    <h2 class="mt-5 text-left">Our Mission</h2>
+                    <h2>Vision</h2>
+                    <p>Menghadirkan ruangan interior yang nyaman, dan unik bagi setiap pelanggan</p>
+                    <h2 class="mt-5 text-left">Mission</h2>
                     <ol class="text-left">
-                        <li>Menghadirkan Keuangan Interior yang Personal, Nyaman, dan Sempurnya</li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel maiores blanditiis ipsam vero itaque quia soluta, officia asperiores non. Adipisci, ex. Voluptatum itaque tempore, est sint ad ut et vitae?</li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ut vel, numquam corrupti provident iste tenetur minima laborum quisquam est? Culpa amet ipsa, vel debitis perspiciatis mollitia minus sequi veniam!</li>
+                        <li>Memberikan layanan konsultasi gratis kepada setiap pelanggan untuk memahami kebutuhan dan preferensi mereka terhadap ruangan interior yang ingin dibuat.</li>
+                        <li>Memberikan solusi yang efektif untuk mengoptimalkan penggunaan ruang yang tersedia dan memastikan kenyamanan penghuni di setiap ruangan.</li>
+                        <li>Menciptakan desain interior yang kreatif, fungsional, dan unik yang memperhitungkan kebutuhan dan preferensi pelanggan.</li>
+                        <li>Menggunakan bahan dan peralatan berkualitas tinggi yang sesuai dengan anggaran dan preferensi pelanggan.</li>
                     </ol>
+
+                    <p>
+                        Dengan menjalankan Visi & Misi ini,
+                        perusahaan interior dapat memastikan bahwa setiap pelanggan mendapatkan ruangan interior yang unik,
+                        nyaman, dan sesuai dengan kebutuhan dan preferensi pelanggan.
+                    </p>
                 </div>
             </div>
         </div>
@@ -47,7 +63,16 @@
         </section>
 
         @include('partials.footer')
-    </body>
+    </body>/
+
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $(".loader").fadeOut(1000)
+            }, 1000);
+        });
+    </script>
+
     </html>
 @else
     @include('partials.navbarGuest')
@@ -71,15 +96,30 @@
                     <p>Alamat : Jl.Kaligawe Raya No. 96 B</p>
                     <hr style="height: 10px; margin-left: 0; width: 300px;">
                     <p>Phone : (+62) 667 962 667</p>
+
+                    <div class="how-bor2">
+                        <div class="hov-img0">
+                            <img src="/images/about/about_2.jpg" class="rounded" alt="IMG">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-6 mt-5">
-                    <h2 class="mt-5 text-left">Our Mission</h2>
+                    <h2>Vision</h2>
+                    <p>Menghadirkan ruangan interior yang nyaman, dan unik bagi setiap pelanggan</p>
+                    <h2 class="mt-5 text-left">Mission</h2>
                     <ol class="text-left">
-                        <li>Menghadirkan Keuangan Interior yang Personal, Nyaman, dan Sempurnya</li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel maiores blanditiis ipsam vero itaque quia soluta, officia asperiores non. Adipisci, ex. Voluptatum itaque tempore, est sint ad ut et vitae?</li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ut vel, numquam corrupti provident iste tenetur minima laborum quisquam est? Culpa amet ipsa, vel debitis perspiciatis mollitia minus sequi veniam!</li>
+                        <li>Memberikan layanan konsultasi gratis kepada setiap pelanggan untuk memahami kebutuhan dan preferensi mereka terhadap ruangan interior yang ingin dibuat.</li>
+                        <li>Memberikan solusi yang efektif untuk mengoptimalkan penggunaan ruang yang tersedia dan memastikan kenyamanan penghuni di setiap ruangan.</li>
+                        <li>Menciptakan desain interior yang kreatif, fungsional, dan unik yang memperhitungkan kebutuhan dan preferensi pelanggan.</li>
+                        <li>Menggunakan bahan dan peralatan berkualitas tinggi yang sesuai dengan anggaran dan preferensi pelanggan.</li>
                     </ol>
+
+                    <p>
+                        Dengan menjalankan Visi & Misi ini,
+                        perusahaan interior dapat memastikan bahwa setiap pelanggan mendapatkan ruangan interior yang unik,
+                        nyaman, dan sesuai dengan kebutuhan dan preferensi pelanggan.
+                    </p>
                 </div>
             </div>
         </div>
@@ -97,8 +137,16 @@
                 </div>
             </div>
         </section>
-
         @include('partials.footer')
     </body>
+    
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $(".loader").fadeOut(1000)
+            }, 1000);
+        });
+    </script>
+
     </html>
 @endif

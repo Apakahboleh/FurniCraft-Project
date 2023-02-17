@@ -23,7 +23,6 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
 
-
     <link rel="stylesheet" href="/css/aos.css">
 
     <link rel="stylesheet" href="/css/style.css">
@@ -34,11 +33,13 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
 </head>
 
 <body>
-    <div id="loader" class="loader"></div>
-
     <div class="site-wrap">
-        <!-- HEADER START  -->
+        <div id="loader" class="loader">
+            <img src="/image/bars.svg" alt="tidak ada"><br>
+            <img src="/image/loading.png" alt="">
+        </div>
 
+        <!-- HEADER START  -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-up" data-aos-delay="100">
             <div class="container-fluid">
 
@@ -128,15 +129,22 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
                 </div>
             </div>
         </header>
-
-
     </div>
+
 
     <div class="row">
         <div class="col">
             @yield('content')
         </div>
     </div>
+
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $(".loader").fadeOut(1000)
+            }, 1000);
+        });
+    </script>
 
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/jquery-ui.js"></script>

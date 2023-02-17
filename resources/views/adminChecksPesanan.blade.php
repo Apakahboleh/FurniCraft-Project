@@ -1,6 +1,5 @@
-@extends('partials.navbarAuth')
-
-@section('content')
+@if (Auth::check())
+@include('partials.navbarAuth')
     <link rel="stylesheet" href="/css/alamat.css">
     <div class="site-section site-blocks-2 block-1 bg-white">
         <div class="container mb-5">
@@ -10,7 +9,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="container mt-2 mb-4">
             <div class="row">
                 @if ( $pesanan->isEmpty() )
@@ -79,5 +78,13 @@
         </div>
     </div>
 
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $(".loader").fadeOut(1000)
+            }, 1000);
+        });
+    </script>
+
     @include('partials.footer')
-@endsection
+@endif

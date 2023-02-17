@@ -54,33 +54,20 @@
                         <div class="carousel-inner relative w-full overflow-hidden">
                             <!-- Single item -->
                             <div class="carousel-item active relative float-left w-full">
-                                <img src="/image/carousel/kitchenCar1.png"
+                                <img src="/image/carousel/Office-1.png"
                                     class="block w-full" alt="Office Furniture 1" />
-
-                                <div class="carousel-caption hidden md:block absolute text-center">
-                                    <h5 class="text-xl">First slide label</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                </div>
                             </div>
 
                             <!-- Single item -->
                             <div class="carousel-item relative float-left w-full">
-                                <img src="/image/carousel/kitchenCar2.png"
+                                <img src="/image/carousel/Office-2.png"
                                     class="block w-full" alt="Office Furniture 2" />
-                                <div class="carousel-caption hidden md:block absolute text-center">
-                                    <h5 class="text-xl">Second slide label</h5>
-                                    <p>Some representative placeholder content for the second slide.</p>
-                                </div>
                             </div>
 
                             <!-- Single item -->
                             <div class="carousel-item relative float-left w-full">
-                                <img src="/image/carousel/kitchenCar3.png"
+                                <img src="/image/carousel/Office-3.png"
                                     class="block w-full" alt="Office Furniture 3" />
-                                <div class="carousel-caption hidden md:block absolute text-center">
-                                    <h5 class="text-xl">Third slide label</h5>
-                                    <p>Some representative placeholder content for the third slide.</p>
-                                </div>
                             </div>
                         </div>
                         <!-- Inner -->
@@ -154,6 +141,13 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $(".loader").fadeOut(1000)
+            }, 1000);
+        });
+    </script>
 @else
     @include('partials.navbarGuest')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -210,33 +204,20 @@
                         <div class="carousel-inner relative w-full overflow-hidden">
                             <!-- Single item -->
                             <div class="carousel-item active relative float-left w-full">
-                                <img src="/image/carousel/kitchenCar1.png"
+                                <img src="/image/carousel/Office-1.png"
                                     class="block w-full" alt="Office Furniture 1" />
-
-                                <div class="carousel-caption hidden md:block absolute text-center">
-                                    <h5 class="text-xl">First slide label</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                </div>
                             </div>
 
                             <!-- Single item -->
                             <div class="carousel-item relative float-left w-full">
-                                <img src="/image/carousel/kitchenCar2.png"
+                                <img src="/image/carousel/Office-2.png"
                                     class="block w-full" alt="Office Furniture 2" />
-                                <div class="carousel-caption hidden md:block absolute text-center">
-                                    <h5 class="text-xl">Second slide label</h5>
-                                    <p>Some representative placeholder content for the second slide.</p>
-                                </div>
                             </div>
 
                             <!-- Single item -->
                             <div class="carousel-item relative float-left w-full">
-                                <img src="/image/carousel/kitchenCar3.png"
+                                <img src="/image/carousel/Office-3.png"
                                     class="block w-full" alt="Office Furniture 3" />
-                                <div class="carousel-caption hidden md:block absolute text-center">
-                                    <h5 class="text-xl">Third slide label</h5>
-                                    <p>Some representative placeholder content for the third slide.</p>
-                                </div>
                             </div>
                         </div>
                         <!-- Inner -->

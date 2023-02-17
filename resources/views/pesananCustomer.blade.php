@@ -1,6 +1,5 @@
-@extends('partials.navbarAuth')
-
-@section('content')
+@if (Auth::check())
+@include('partials.navbarAuth')
     <link rel="stylesheet" href="/css/alamat.css">
     <div class="site-section site-blocks-2 block-1 bg-white">
         <div class="container mb-5">
@@ -36,6 +35,7 @@
                     {{-- <h1 class="text-success">{{ Auth::user()->alamat }}</h1> --}}
                     <div class="col">
                         <h5>Alamat Kamu Saat Ini</h5>
+                        <p class="fs-4 text-success">{{ Auth::user()->alamat }}</p>
                     </div>
                     <form action="/alamat/update/{{ Auth::user()->id }}" method="post">
                         @csrf
@@ -100,6 +100,12 @@
             </div>
         </div>
     </div>
-
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $(".loader").fadeOut(1000)
+            }, 1000);
+        });
+    </script>
     @include('partials.footer')
-@endsection
+@endif

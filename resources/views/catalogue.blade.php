@@ -175,13 +175,6 @@
                 @endforeach
                 </div>
 
-                {{-- <div class="container mt-5">
-                    <div class="row">
-                        <div class="col">
-                            {{ $kitchenSets->links(), $office_furnitures->links(), $livingRooms->links() }}
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
         @endif
@@ -291,6 +284,14 @@
             })
         });
 
+    </script>
+
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $(".loader").fadeOut(1000)
+            }, 1000);
+        });
     </script>
 
     </html>
@@ -471,13 +472,6 @@
                 @endforeach
                 </div>
 
-                {{-- <div class="container mt-5">
-                    <div class="row">
-                        <div class="col">
-                            {{ $kitchenSets->links(), $office_furnitures->links(), $livingRooms->links() }}
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
         @endif
