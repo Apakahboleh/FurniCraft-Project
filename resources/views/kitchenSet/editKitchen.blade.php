@@ -1,6 +1,5 @@
-@extends('partials.navbarAuth')
-
-@section('content')
+@can ('admin')
+    @include('partials.navbarAuth')
     <link rel="stylesheet" href="/css/image_button.css">
     <div class="container mt-5">
         <div class="row">
@@ -98,4 +97,12 @@
         </div>
     </div>
 
-@endsection
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $(".loader").fadeOut(1000)
+            }, 1000);
+        });
+    </script>
+@endcan
+

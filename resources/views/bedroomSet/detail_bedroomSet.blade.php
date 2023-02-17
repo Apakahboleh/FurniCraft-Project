@@ -312,6 +312,14 @@
         });
     </script>
     <!-- End Slider Script -->
+
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $(".loader").fadeOut(1000)
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
 
@@ -477,10 +485,6 @@
                                     </ul>
 
                                     <h6>Specification:</h6>
-
-                                    <div class="alert alert-danger w-50" role="alert">
-                                        Gunakan "." Bukan ","
-                                    </div>
 
                                     <ul class="list-unstyled pb-3">
                                         <li>

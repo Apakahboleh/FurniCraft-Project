@@ -310,6 +310,14 @@
         });
     </script>
     <!-- End Slider Script -->
+    
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $(".loader").fadeOut(1000)
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
 

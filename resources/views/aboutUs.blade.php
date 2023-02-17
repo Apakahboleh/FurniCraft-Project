@@ -41,7 +41,7 @@
 
                     <p>
                         Dengan menjalankan Visi & Misi ini,
-                        perusahaan interior dapat memastikan bahwa setiap pelanggan mendapatkan ruangan interior yang unik,
+                        FurniCraft dapat memastikan bahwa setiap pelanggan mendapatkan ruangan interior yang unik,
                         nyaman, dan sesuai dengan kebutuhan dan preferensi pelanggan.
                     </p>
                 </div>
@@ -139,7 +139,7 @@
         </section>
         @include('partials.footer')
     </body>
-    
+
     <script>
         $(function () {
             setTimeout(() => {
