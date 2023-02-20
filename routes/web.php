@@ -113,13 +113,3 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/checks/pesanan', [PesananController::class, "view_adminChecks"]);
     Route::put('/adminCheck/{id}/status-check', [PesananController::class, "status_update"]);
 });
-
-
-
-
-// Cart
-// Route::get('/cart', [CartController::class, "cart_page"]);
-// Route::put('/cart/{id}/add', [CartController::class, "add_cart"]);
-// Route::get('/cart/{id}/update-item/{quantity}', [CartController::class, "update_cart"]);
-// Route::get('/cart/{id}/hapus-item', [CartController::class, "destroy_cart"]);
-// Route::post('/detail/pesan/{id}', [CartController::class, "pesanbyDetail"]);
