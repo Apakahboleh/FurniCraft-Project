@@ -30,6 +30,7 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
     <link rel="stylesheet" href="/css/style1.css">
 
     <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/navbar.css">
 </head>
 
 <body>
@@ -40,33 +41,56 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
         </div>
 
         <!-- HEADER START  -->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-up" data-aos-delay="100">
-            <div class="container-fluid">
+        <header class="header-nav fixed-top">
+            <div class="logo">
+                <img class="img-navbar" src="/image/logoFurniCraft.png" width="100px" alt="">
+            </div>
+            <input type="checkbox" id="nav_check" hidden>
+            <nav>
+                <div class="logo">
+                    <img src="/image/logoFurniCraft.png" width="100px" alt="">
+                </div>
+                <ul type="none">
+                    <li><a href="/categories/kitchenSet" class="active">Kitchen Set</a></li>
+                    <li><a href="/categories/bedroomSet">Bedroom Set</a></li>
+                    <li><a href="/categories/livingRoom">Living Room</a></li>
+                    <li><a href="/categories/officeFurniture">Office Furniture</a></li>
+                </ul>
+            </nav>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="fa fa-bars"></span> Menu
-                </button>
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav m-auto">
-                        <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Categories</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown04">
-                                <a class="dropdown-item" href="/categories/kitchenSet">Kitchen Set</a>
-                                <a class="dropdown-item" href="/categories/bedroomSet">Bedroom Set</a>
-                                <a class="dropdown-item" href="/categories/livingRoom">Living Room</a>
-                                <a class="dropdown-item" href="/categories/officeFurniture">Office Furniture</a>
-                            </div>
-                        </li>
-                        <li class="nav-item"><a href="/furnicraft/catalogue" class="nav-link">Catalogue</a></li>
-                        <li class="nav-item"><a href="/furnicraft/tentang-kami" class="nav-link">Tentang Kami</a></li>
-                    </ul>
+            <img src="/image/user.png" alt="" class="userPic" onclick="toggleMenu()">
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="/image/user.png" alt="">
+                        <h2>Rofiudin</h2>
+                    </div>
+                    <hr>
+
+                    <a href="/account/ubah-password" class="sub-menu-link">
+                        <img src="/image/setting.png">
+                        <p>Ubah Password</p>
+                        <span>></span>
+                    </a>
+                    <a href="/pesanan" class="sub-menu-link">
+                        <img src="/image/help.png">
+                        <p>Cek Order</p>
+                        <span>></span>
+                    </a>
+                    <a href="/account/logout" class="sub-menu-link">
+                        <img src="/image/logout.png">
+                        <p>Logout</p>
+                        <span>></span>
+                    </a>
                 </div>
             </div>
-        </nav>
 
+            <label for="nav_check" class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+        </header>
         <header class="site-navbar ftco-section" role="banner">
             <div class="container-fluid px-md-5">
                 <div class="row justify-content-between">
@@ -74,6 +98,15 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
                         <div class="row">
                             <div class="col-md-6 text-center">
                                 <a class="navbar-brand text-success text-capitalize" style="font-size: 30px" href="/Furnicraft/home">FurniCraft <span>Simple and Comfortable</span></a>
+                                <div class="container ">
+                                    <div class="text-center d-flex justify-content-center mb-lg-0 mb-0 shadow p-3 mb-5">
+                                        <ul class="list-inline mb-5 mx-auto" style="font-size: 20px;">
+                                            <li class="list-inline-item"><a class="text-success" href="/Furnicraft/home">HOME</a></li>
+                                            <li class="list-inline-item"><a class="text-success" href="/furnicraft/catalogue">CATALOGUE</a></li>
+                                            <li class="list-inline-item mt-4"><a class="text-success" href="/furnicraft/tentang-kami">TENTANG KAMI</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
                                 <form action="/furnicraft/catalogue" class="searchform order-lg-last">
@@ -93,10 +126,12 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
                                     <li class="has-children active">
                                         <a href="#"><span class="icon icon-person text-success">{{ Auth::user()->name }}</span></a>
                                         <ul class="dropdown">
-                                            <li><a href="/account/ubah-password ">Ubah Password</a></li>
+                                            <small class="text-success mx-2" style="font-size:20px;">{{ Auth::user()->no_hp }}</small>
+                                            <hr style="color:black;" class="shadow">
+                                            <li><a href="/account/ubah-password">Ubah Password</a></li>
                                             <li><a href="/account/logout">Logout</a></li>
-                                            <li><a href="/pesanan">Cek Order</a>
-                                            </li>
+                                            <li><a href="/pesanan">Cek Order</a></li>
+
                                         </ul>
                                     </li>
 
@@ -131,12 +166,7 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
         </header>
     </div>
 
-
-    <div class="row">
-        <div class="col">
-            @yield('content')
-        </div>
-    </div>
+    @yield('content')
 
     <script>
         $(function () {
@@ -160,6 +190,24 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap1.min.js"></script>
 	<script src="/js/main1.js"></script>
+    <script>
+        const checkbox = document.getElementById("nav_check");
+        const nav = document.querySelector("nav");
+
+        document.addEventListener("click", function(event) {
+            if (event.target.closest("nav") === null && event.target !== checkbox) {
+                checkbox.checked = false;
+            }
+        });
+    </script>
+
+    <script>
+        let subMenu = document.getElementById("subMenu");
+
+        function toggleMenu() {
+            subMenu.classList.toggle("open-menu");
+        }
+    </script>
 </body>
 
 </html>

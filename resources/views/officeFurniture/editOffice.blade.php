@@ -15,7 +15,7 @@
         <div class="container mt-5">
             <div class="row g-0">
                 <div class="col-sm-5">
-                    <img src="/image/items/{{ $office_furnitures->image }}" width="500px" class="rounded" alt="">
+                    <img src="/image/items/{{ $office_furnitures->image }}" width="500px" class="rounded-top img-responsive col-md-12 offset-sm-1" alt="">
                 </div>
 
                 <div class="col-sm-6 offset-sm-1">

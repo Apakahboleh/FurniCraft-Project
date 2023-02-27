@@ -22,7 +22,7 @@
 
     <link rel="stylesheet" href="/css/style1.css">
 
-    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/navbar.css">
 
     <style>
 
@@ -34,7 +34,7 @@
     <div class="site-wrap">
         <!-- HEADER START  -->
 
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-up" data-aos-delay="100">
+        {{-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-up" data-aos-delay="100">
             <div class="container-fluid">
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -59,7 +59,56 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
+        <header class="header-nav fixed-top">
+            <div class="logo">
+                <img class="img-navbar" src="/image/logoFurniCraft.png" width="100px" alt="">
+            </div>
+            <input type="checkbox" id="nav_check" hidden>
+            <nav>
+                <div class="logo">
+                    <img src="/image/logoFurniCraft.png" width="100px" alt="">
+                </div>
+                <ul type="none">
+                    <li><a href="/categories/kitchenSet" class="active">Kitchen Set</a></li>
+                    <li><a href="/categories/bedroomSet">Bedroom Set</a></li>
+                    <li><a href="/categories/livingRoom">Living Room</a></li>
+                    <li><a href="/categories/officeFurniture">Office Furniture</a></li>
+                </ul>
+            </nav>
+
+            <img src="/image/user.png" alt="" class="userPic" onclick="toggleMenu()">
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="/image/user.png" alt="">
+                        <h2>Rofiudin</h2>
+                    </div>
+
+                    <a href="/account/create" class="sub-menu-link">
+                        <img src="/image/setting.png">
+                        <p>Buat Akun</p>
+                        <span>></span>
+                    </a>
+                    <a href="/account/login" class="sub-menu-link">
+                        <img src="/image/help.png">
+                        <p>Login</p>
+                        <span>></span>
+                    </a>
+                    <a href="/pesanan" class="sub-menu-link">
+                        <img src="/image/logout.png">
+                        <p>Cek Status</p>
+                        <span>></span>
+                    </a>
+                </div>
+            </div>
+
+            <label for="nav_check" class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+        </header>
 
         <header class="site-navbar ftco-section" role="banner">
             <div class="container-fluid px-md-5">
@@ -67,7 +116,16 @@
                     <div class="col-md-8 order-md-last">
                         <div class="row">
                             <div class="col-md-6 text-center">
-                                <a class="navbar-brand text-success text-capitalize" style="font-size: 30px" href="/">FurniCraft <span>Simple and Comfortable</span></a>
+                                <a class="navbar-brand text-success text-capitalize" style="font-size: 30px" href="/Furnicraft/home">FurniCraft <span>Simple and Comfortable</span></a>
+                                <div class="container ">
+                                    <div class="text-center d-flex justify-content-center mb-lg-0 mb-0 shadow p-3 mb-5">
+                                        <ul class="list-inline mb-5 mx-auto" style="font-size: 20px;">
+                                            <li class="list-inline-item"><a class="text-success" href="/Furnicraft/home">HOME</a></li>
+                                            <li class="list-inline-item"><a class="text-success" href="/furnicraft/catalogue">CATALOGUE</a></li>
+                                            <li class="list-inline-item mt-4"><a class="text-success" href="/furnicraft/tentang-kami">TENTANG KAMI</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
                                 <form action="/furnicraft/catalogue" class="searchform order-lg-last">
@@ -87,16 +145,18 @@
                                     <li class="has-children active">
                                         <a href="#"><span class="icon icon-person text-success"></span></a>
                                         <ul class="dropdown">
+                                            <hr style="color:black;" class="shadow">
                                             <li><a href="/account/create">Buat Akun</a></li>
                                             <li><a href="/account/login">Login</a></li>
                                             <li><a href="/pesanan">Cek Status</a></li>
+
                                         </ul>
                                     </li>
                                 </ul>
 
                                 <div class="text-right site-top-icons">
                                     <li class="d-inline-block d-md-none ml-md-0">
-                                        <a href="#" class="site-menu-toggle js-menu-toggle btn btn-lg">Account
+                                        <a href="#" class="site-menu-toggle js-menu-toggle btn btn-lg"> Menu
                                             <span class="icon-menu"></span>
                                         </a>
                                     </li>
@@ -107,15 +167,9 @@
                 </div>
             </div>
         </header>
-
-
     </div>
 
-    <div class="row">
-        <div class="col">
-            @yield('content')
-        </div>
-    </div>
+    @yield('content')
 
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/jquery-ui.js"></script>
@@ -131,6 +185,24 @@
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap1.min.js"></script>
 	<script src="/js/main1.js"></script>
+    <script>
+        const checkbox = document.getElementById("nav_check");
+        const nav = document.querySelector("nav");
+
+        document.addEventListener("click", function(event) {
+            if (event.target.closest("nav") === null && event.target !== checkbox) {
+                checkbox.checked = false;
+            }
+        });
+    </script>
+
+    <script>
+        let subMenu = document.getElementById("subMenu");
+
+        function toggleMenu() {
+            subMenu.classList.toggle("open-menu");
+        }
+    </script>
 </body>
 
 </html>

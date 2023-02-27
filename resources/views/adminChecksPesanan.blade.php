@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col">
                                 <h1 class="mt-5 text-primary mb-5">Kamu Belum Pesan Apapun Nih. <br> Mulai Borongin Yuk {{ Auth::user()->name }}</h1>
-                                <img src="/image/shopping.gif" class="" alt="" >
+                                <img src="/image/shopping.gif" class="" width="250px" alt="" >
                             </div>
                         </div>
                     </div>
