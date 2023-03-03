@@ -68,12 +68,12 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
                     <hr>
 
                     <a href="/account/ubah-password" class="sub-menu-link">
-                        <img src="/image/setting.png">
+                        <img src="/image/password.png">
                         <p>Ubah Password</p>
                         <span>></span>
                     </a>
                     <a href="/pesanan" class="sub-menu-link">
-                        <img src="/image/help.png">
+                        <img src="/image/order.png">
                         <p>Cek Order</p>
                         <span>></span>
                     </a>

@@ -76,22 +76,22 @@
                     <li><a href="/categories/officeFurniture">Office Furniture</a></li>
                 </ul>
             </nav>
-
-            <img src="/image/user.png" alt="" class="userPic" onclick="toggleMenu()">
+            <img src="/image/guest.png" alt="" class="userPic" onclick="toggleMenu()" >
+            <button class="btn btn-outline-success" onclick="toggleMenu()">Sign In</button>
             <div class="sub-menu-wrap" id="subMenu">
                 <div class="sub-menu">
                     <div class="user-info">
-                        <img src="/image/user.png" alt="">
-                        <h2>Rofiudin</h2>
+                        <img src="/image/guest.png" alt="">
+                        <h2>Guest</h2>
                     </div>
 
                     <a href="/account/create" class="sub-menu-link">
-                        <img src="/image/setting.png">
+                        <img src="/image/daftar.png">
                         <p>Buat Akun</p>
                         <span>></span>
                     </a>
                     <a href="/account/login" class="sub-menu-link">
-                        <img src="/image/help.png">
+                        <img src="/image/login.png">
                         <p>Login</p>
                         <span>></span>
                     </a>
