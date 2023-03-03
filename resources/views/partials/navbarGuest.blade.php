@@ -116,7 +116,7 @@
                     <div class="col-md-8 order-md-last">
                         <div class="row">
                             <div class="col-md-6 text-center">
-                                <a class="navbar-brand text-success text-capitalize" style="font-size: 30px" href="/Furnicraft/home">FurniCraft <span>Simple and Comfortable</span></a>
+                                <a class="navbar-brand text-success text-capitalize" style="font-size: 30px" href="/">FurniCraft <span>Simple and Comfortable</span></a>
                                 <div class="container ">
                                     <div class="text-center d-flex justify-content-center mb-lg-0 mb-0 shadow p-3 mb-5">
                                         <ul class="list-inline mb-5 mx-auto" style="font-size: 20px;">
@@ -145,7 +145,6 @@
                                     <li class="has-children active">
                                         <a href="#"><span class="icon icon-person text-success"></span></a>
                                         <ul class="dropdown">
-                                            <hr style="color:black;" class="shadow">
                                             <li><a href="/account/create">Buat Akun</a></li>
                                             <li><a href="/account/login">Login</a></li>
                                             <li><a href="/pesanan">Cek Status</a></li>

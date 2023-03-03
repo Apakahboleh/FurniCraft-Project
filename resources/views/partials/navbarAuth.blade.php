@@ -58,12 +58,12 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
                 </ul>
             </nav>
 
-            <img src="/image/user.png" alt="" class="userPic" onclick="toggleMenu()">
+            <img class="userPic" onclick="toggleMenu()" src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=random&color=28a745" alt="">
             <div class="sub-menu-wrap" id="subMenu">
                 <div class="sub-menu">
                     <div class="user-info">
-                        <img src="/image/user.png" alt="">
-                        <h2>Rofiudin</h2>
+                        <img class="userPic" onclick="toggleMenu()" src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=random&color=28a745" alt="">
+                        <h2>{{ Auth::user()->name }}</h2>
                     </div>
                     <hr>
 
@@ -126,8 +126,6 @@ $count_pesanan = Pesanan::where("user_id", Auth::user()->id)->count()
                                     <li class="has-children active">
                                         <a href="#"><span class="icon icon-person text-success">{{ Auth::user()->name }}</span></a>
                                         <ul class="dropdown">
-                                            <small class="text-success mx-2" style="font-size:20px;">{{ Auth::user()->no_hp }}</small>
-                                            <hr style="color:black;" class="shadow">
                                             <li><a href="/account/ubah-password">Ubah Password</a></li>
                                             <li><a href="/account/logout">Logout</a></li>
                                             <li><a href="/pesanan">Cek Order</a></li>
